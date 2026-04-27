@@ -20,9 +20,6 @@
                 "reference": "63422359a44b7f06cae63c3b429b59e8efcc0629",
                 "shasum": ""
             },
-            "require": {
-                "php": "^8.2"
-            },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.2",
                 "phpstan/phpstan": "2.1.22",
