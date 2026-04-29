@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Exercise\Exercise01Controller;
 use App\Http\Controllers\Exercise\Exercise02Controller;
+use App\Http\Controllers\Exercise\Exercise03Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -11,3 +12,4 @@ Route::get('/user', function (Request $request) {
 
 Route::post('exercise-1-artwork-version', [Exercise01Controller::class, 'post']);
 Route::post('exercise-2-tier-pricing', [Exercise02Controller::class, 'post']);
+Route::post('exercise-3-cart-validator', [Exercise03Controller::class, 'post']);
