@@ -44,10 +44,11 @@ class Exercise03Controller extends Controller
 
             if ($invalidItemIds == []) {
                 $response['message'] = "All inputs are valid";
-                $response['data'] = ['valid' => true, 'invalid_items' => []];
+                $response['data']['valid'] = true;
             }else{
-                $response['data'] = ['valid' => false, 'invalid_items' => $invalidItemIds];
+                $response['data']['valid'] = false;
             }
+            $response['data']['invalid_items'] = $invalidItemIds;
             $response['success'] = true;
         } catch (\Throwable $th) {
             $response['message'] = $th->getMessage();
