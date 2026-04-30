@@ -44,7 +44,7 @@ class Exercise03Controller extends Controller
 
             if ($invalidItemIds == []) {
                 $response['message'] = "All inputs are valid";
-                $response['data'] = ['valid' => true];
+                $response['data'] = ['valid' => true, 'invalid_items' => []];
             }else{
                 $response['data'] = ['valid' => false, 'invalid_items' => $invalidItemIds];
             }
