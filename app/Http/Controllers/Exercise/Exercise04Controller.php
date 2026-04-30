@@ -55,12 +55,11 @@ class Exercise04Controller extends Controller
             }
 
             if ($allocatedQuantity < $requiredQuantity) {
-                $response['success'] = false;
                 $response['message'] = "Order cannot be placed as required quantity cannot be full filled form vendors";
-            } else {
-                $response['success'] = true;
-                $response['data'] = $allocatedToAllVendors;
             }
+
+            $response['success'] = true;
+            $response['data'] = $allocatedToAllVendors;
         } catch (\Throwable $th) {
             $response['message'] = $th->getMessage();
         }
