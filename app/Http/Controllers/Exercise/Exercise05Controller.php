@@ -15,7 +15,7 @@ class Exercise05Controller extends Controller
             'input.price' => 'required|integer',
             'input.discounts' => 'required|array',
             'input.discounts.*.type' => 'required|string|in:percentage,flat',
-            'input.discounts.*.value' => 'required|integer',
+            'input.discounts.*.value' => 'required|numeric',
         ]);
 
         $response = [
