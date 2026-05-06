@@ -12,7 +12,7 @@ class Exercise07Controller extends Controller
     {
         $validator = Validator::make($request->all(), [
             'input' => 'required|array',
-            'input.stock' => 'required|integer',
+            'input.stock' => 'required|integer|min:0',
             'input.requests' => 'required|array',
             'input.requests.*' => 'required|integer|min:1',
         ]);
