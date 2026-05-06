@@ -14,7 +14,7 @@ class Exercise07Controller extends Controller
             'input' => 'required|array',
             'input.stock' => 'required|integer',
             'input.requests' => 'required|array',
-            'input.requests.*' => 'required|integer',
+            'input.requests.*' => 'required|integer|min:1',
         ]);
 
         $response = [
