@@ -43,8 +43,8 @@ class Exercise07Controller extends Controller
                 if ($remainingStocks >= 0) {
                     $output[$key] = true;
                 } else {
-                $remainingStocks =  $remainingStocks + $inputRequest;
-                $output[$key] = false;
+                    $remainingStocks =  $remainingStocks + $inputRequest;
+                    $output[$key] = false;
                 }
             }
 
