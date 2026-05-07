@@ -24,7 +24,7 @@ class Exercise07Controller extends Controller
 
         if ($validator->fails()) {
             $response['message'] = "Validation error";
-            $response['error'] = $validator->messages()->all();
+            $response['error'] = $validator->messages()->first();
 
             return response()->json($response);
         }
