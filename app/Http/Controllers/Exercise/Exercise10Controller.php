@@ -31,21 +31,22 @@ class Exercise10Controller extends Controller
         }
 
         $input = $request['input'];
+        $validDays = (int) $input['valid_days'];
 
         $currentDate = Carbon::parse($input['current_date']);
         $createdAt = Carbon::parse($input['created_at']);
 
-        if ($currentDate < $createdAt) {
+        if ($createdAt->gt($currentDate)) {
             $response['message'] = "Date correction error";
             $response['error'] = "Created date must not be greater than current data";
 
             return response()->json($response);
         }
 
-        $days = Carbon::parse($createdAt)->diffInDays($currentDate);
+        $days = $createdAt->copy()->addDays($validDays + 1);
         $valid = false;
 
-        if ($days >= $input['valid_days']) {
+        if ($days->gt($currentDate)) {
             $valid = true;
         }
 
