@@ -37,14 +37,13 @@ class Exercise11Controller extends Controller
         }
 
         $input = $request['input'];
-        $customersTags = $input['customer']['tags'];
+        $customerTags = $input['customer']['tags'];
         $products = $input['products'];
 
         $outputArray = [];
+        $tempCount = 0;
 
-        foreach ($customersTags as $customersTag) {
-            $tempCount = 0;
-
+        foreach ($customerTags as $customersTag) {
             foreach ($products as $product) {
                 if (in_array($customersTag, $product['allow']) && in_array($customersTag, $product['block'])) {
                     $response['message'] = "Logic error";
@@ -52,11 +51,21 @@ class Exercise11Controller extends Controller
 
                     return response()->json($response);
                 } else if (in_array($customersTag, $product['allow'])) {
-                    $outputArray[$customersTag][$tempCount] = $product['id'];
+                    $outputArray[$tempCount] = $product['id'];
                     $tempCount++;
                 }
             }
         }
+
+        foreach ($customerTags as $customersTag) {
+            foreach ($products as $product) {
+                if (in_array($customersTag, $product['block'])) {
+                    unset($outputArray[$tempCount]);
+                }
+            }
+        }
+
+        $outputArray = array_values(array_unique($outputArray));
 
         $response['success'] = true;
         $response['data'] = $outputArray;
