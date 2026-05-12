@@ -14,7 +14,7 @@ class Exercise11Controller extends Controller
         $validator = Validator::make($request->all(), [
             'input' => 'required|array',
 
-            'input.customer' => 'required|array',
+            'input.customer' => 'nullable|array',
             'input.customer.tags' => 'required|array',
             'input.customer.tags.*' => 'required|string',
 
