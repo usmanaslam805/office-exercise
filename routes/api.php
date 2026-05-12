@@ -12,6 +12,7 @@ use App\Http\Controllers\Exercise\Exercise06Controller;
 use App\Http\Controllers\Exercise\Exercise07Controller;
 use App\Http\Controllers\Exercise\Exercise08Controller;
 use App\Http\Controllers\Exercise\Exercise09Controller;
+use App\Http\Controllers\Exercise\Exercise10Controller;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -26,3 +27,4 @@ Route::post('exercise-6-approval-flow', [Exercise06Controller::class, 'post']);
 Route::post('exercise-7-inventory', [Exercise07Controller::class, 'post']);
 Route::post('exercise-8-shipment', [Exercise08Controller::class, 'post']);
 Route::post('exercise-9-webhook', [Exercise09Controller::class, 'post']);
+Route::post('exercise-10-quote-expiry', [Exercise10Controller::class, 'post']);
