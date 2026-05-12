@@ -12,10 +12,10 @@ class Exercise02Controller extends Controller
     {
         $validator = Validator::make($request->all(), [
             'input' => 'required|array',
-            'input.quantity' => 'required|integer',
+            'input.quantity' => 'required|integer|numeric:strict',
             'input.tiers' => 'required|array',
-            'input.tiers.*.min' => 'required|integer|distinct',
-            'input.tiers.*.price' => 'required|integer',
+            'input.tiers.*.min' => 'required|integer|numeric:strict|distinct',
+            'input.tiers.*.price' => 'required|integer|numeric:strict',
         ]);
 
         $response = [

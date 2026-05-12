@@ -12,10 +12,10 @@ class Exercise04Controller extends Controller
     {
         $validator = Validator::make($request->all(), [
             'input' => 'required|array',
-            'input.order_qty' => 'required|integer|min:1',
+            'input.order_qty' => 'required|integer|numeric:strict|min:1',
             'input.vendors' => 'required|array',
-            'input.vendors.*.id' => 'required|integer|distinct',
-            'input.vendors.*.stock' => 'required|integer',
+            'input.vendors.*.id' => 'required|integer|numeric:strict|distinct',
+            'input.vendors.*.stock' => 'required|integer|numeric:strict|min:0',
         ], [
             'input.order_qty.min' => "The required quantity must be greater than 0",
         ]);

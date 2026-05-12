@@ -12,10 +12,10 @@ class Exercise01Controller extends Controller
     {
         $validator = Validator::make($request->all(), [
             'input' => 'required|array',
-            'input.*.id' => 'required|integer',
+            'input.*.id' => 'required|integer|numeric:strict',
             'input.*.approved' => 'required|boolean',
             'input.*.rejected' => 'required|boolean',
-            'input.*.time' => 'required|integer',
+            'input.*.time' => 'required|integer|numeric:strict|min:0',
         ]);
 
         $response = [

@@ -12,7 +12,7 @@ class Exercise05Controller extends Controller
     {
         $validator = Validator::make($request->all(), [
             'input' => 'required|array',
-            'input.price' => 'required|integer',
+            'input.price' => 'required|integer|numeric:strict|min:0',
             'input.discounts' => 'required|array',
             'input.discounts.*.type' => 'required|string|in:percentage,flat',
             'input.discounts.*.value' => 'required|numeric',

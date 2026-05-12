@@ -12,7 +12,7 @@ class Exercise03Controller extends Controller
     {
         $validator = Validator::make($request->all(), [
             'input' => 'required|array',
-            'input.*.id' => 'required|integer|distinct',
+            'input.*.id' => 'required|integer|numeric:strict|distinct',
             'input.*.required' => 'required|boolean',
             'input.*.done' => 'required|boolean',
         ]);

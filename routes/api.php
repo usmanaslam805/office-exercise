@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Exercise\Exercise01Controller;
 use App\Http\Controllers\Exercise\Exercise02Controller;
 use App\Http\Controllers\Exercise\Exercise03Controller;
@@ -8,8 +11,7 @@ use App\Http\Controllers\Exercise\Exercise05Controller;
 use App\Http\Controllers\Exercise\Exercise06Controller;
 use App\Http\Controllers\Exercise\Exercise07Controller;
 use App\Http\Controllers\Exercise\Exercise08Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Exercise\Exercise09Controller;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -23,3 +25,4 @@ Route::post('exercise-5-discount', [Exercise05Controller::class, 'post']);
 Route::post('exercise-6-approval-flow', [Exercise06Controller::class, 'post']);
 Route::post('exercise-7-inventory', [Exercise07Controller::class, 'post']);
 Route::post('exercise-8-shipment', [Exercise08Controller::class, 'post']);
+Route::post('exercise-9-webhook', [Exercise09Controller::class, 'post']);
