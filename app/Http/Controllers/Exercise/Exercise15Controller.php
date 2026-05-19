@@ -61,7 +61,7 @@ class Exercise15Controller extends Controller
         $requiredMethod = collect($extractedRules)->sortBy('priority')->first()['method'];
 
         $response['success'] = true;
-        $response['data'] = $requiredMethod;
+        $response['data'] = ['shipping_method' => $requiredMethod];
 
         return response()->json($response);
     }
