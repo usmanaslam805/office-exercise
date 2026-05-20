@@ -40,7 +40,7 @@ class Exercise12Controller extends Controller
         $combinedPrice = 0;
         $finalPrice = 0;
 
-        foreach ($items as $key => $item) {
+        foreach ($items as $item) {
             $combinedPrice += $item['price'];
         }
 
@@ -53,7 +53,7 @@ class Exercise12Controller extends Controller
         }
 
         $response['success'] = true;
-        $response['data'] = ["final_calculated_price" => $finalPrice];
+        $response['data'] = ["final_price" => $finalPrice];
 
         return response()->json($response);
     }
