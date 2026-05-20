@@ -16,8 +16,8 @@ use App\Http\Controllers\Exercise\Exercise10Controller;
 use App\Http\Controllers\Exercise\Exercise11Controller;
 use App\Http\Controllers\Exercise\Exercise13Controller;
 use App\Http\Controllers\Exercise\Exercise14Controller;
-use App\Http\Controllers\Api\StorefrontController;
 use App\Http\Controllers\Exercise\Exercise15Controller;
+use App\Http\Controllers\Exercise\Exercise16Controller;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -37,10 +37,5 @@ Route::post('exercise-11-product-visibility', [Exercise11Controller::class, 'pos
 Route::post('exercise-13-cart-merge', [Exercise13Controller::class, 'post']);
 Route::post('exercise-14-upsell', [Exercise14Controller::class, 'post']);
 Route::post('exercise-15-shipping-rule', [Exercise15Controller::class, 'post']);
-
-// Storefront API - Product Relationships
-// Route::prefix('storefront')->group(function () {
-//     Route::get('products/{handle}/related-products', [StorefrontController::class, 'relatedProducts']);
-//     Route::get('products/by-id/{shopifyProductId}/related-products', [StorefrontController::class, 'relatedProductsById']);
-// });
+Route::post('exercise-16-fraud-check', [Exercise16Controller::class, 'post']);
 
