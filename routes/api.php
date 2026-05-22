@@ -20,6 +20,7 @@ use App\Http\Controllers\Exercise13Controller;
 use App\Http\Controllers\Exercise14Controller;
 use App\Http\Controllers\Exercise15Controller;
 use App\Http\Controllers\Exercise16Controller;
+use App\Http\Controllers\Exercise19Controller;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -42,4 +43,5 @@ Route::post('exercise-14-upsell', [Exercise14Controller::class, 'post']);
 Route::post('exercise-15-shipping-rule', [Exercise15Controller::class, 'post']);
 Route::post('exercise-16-fraud-check', [Exercise16Controller::class, 'post']);
 Route::post('exercise-18-data-sync', [Exercise18Controller::class, 'post']);
+Route::post('exercise-19-variant-control', [Exercise19Controller::class, 'post']);
 

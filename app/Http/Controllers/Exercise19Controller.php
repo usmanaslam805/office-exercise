@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class Exercise18Controller extends Controller
+class Exercise19Controller extends Controller
 {
     public function post(Request $request)
     {
@@ -35,19 +35,8 @@ class Exercise18Controller extends Controller
             return response()->json($response);
         }
 
-        $input = $request['input'];
-        $internal = $input['internal'];
-        $shopify = $input['shopify'];
-        $price = 0;
-
-        if ($internal['updated_at'] > $shopify['updated_at']) {
-            $price = $internal['price'];
-        } else {
-            $price = $shopify['price'];
-        }
-
         $response['success'] = true;
-        $response['data'] = ['price' => $price];
+        $response['data'] = ['value' => $value];
 
         return response()->json($response);
     }
