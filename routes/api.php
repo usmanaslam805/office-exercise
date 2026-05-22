@@ -1,24 +1,25 @@
 <?php
 
+use App\Http\Controllers\Exercise18Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Exercise\Exercise01Controller;
-use App\Http\Controllers\Exercise\Exercise02Controller;
-use App\Http\Controllers\Exercise\Exercise03Controller;
-use App\Http\Controllers\Exercise\Exercise04Controller;
-use App\Http\Controllers\Exercise\Exercise05Controller;
-use App\Http\Controllers\Exercise\Exercise06Controller;
-use App\Http\Controllers\Exercise\Exercise07Controller;
-use App\Http\Controllers\Exercise\Exercise08Controller;
-use App\Http\Controllers\Exercise\Exercise09Controller;
-use App\Http\Controllers\Exercise\Exercise10Controller;
-use App\Http\Controllers\Exercise\Exercise11Controller;
-use App\Http\Controllers\Exercise\Exercise12Controller;
-use App\Http\Controllers\Exercise\Exercise13Controller;
-use App\Http\Controllers\Exercise\Exercise14Controller;
-use App\Http\Controllers\Exercise\Exercise15Controller;
-use App\Http\Controllers\Exercise\Exercise16Controller;
+use App\Http\Controllers\Exercise01Controller;
+use App\Http\Controllers\Exercise02Controller;
+use App\Http\Controllers\Exercise03Controller;
+use App\Http\Controllers\Exercise04Controller;
+use App\Http\Controllers\Exercise05Controller;
+use App\Http\Controllers\Exercise06Controller;
+use App\Http\Controllers\Exercise07Controller;
+use App\Http\Controllers\Exercise08Controller;
+use App\Http\Controllers\Exercise09Controller;
+use App\Http\Controllers\Exercise10Controller;
+use App\Http\Controllers\Exercise11Controller;
+use App\Http\Controllers\Exercise12Controller;
+use App\Http\Controllers\Exercise13Controller;
+use App\Http\Controllers\Exercise14Controller;
+use App\Http\Controllers\Exercise15Controller;
+use App\Http\Controllers\Exercise16Controller;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -40,4 +41,5 @@ Route::post('exercise-13-cart-merge', [Exercise13Controller::class, 'post']);
 Route::post('exercise-14-upsell', [Exercise14Controller::class, 'post']);
 Route::post('exercise-15-shipping-rule', [Exercise15Controller::class, 'post']);
 Route::post('exercise-16-fraud-check', [Exercise16Controller::class, 'post']);
+Route::post('exercise-18-data-sync', [Exercise18Controller::class, 'post']);
 
