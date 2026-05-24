@@ -14,13 +14,11 @@ class Exercise19Controller extends Controller
         $validator = Validator::make($request->all(), [
             'input' => 'required|array',
 
-            'input.shopify' => 'present|array',
-            'input.shopify.price' => 'required|integer|numeric:strict|min:0',
-            'input.shopify.updated_at' => 'required|integer|numeric:strict|min:1',
+            'input.options' => 'present|array',
+            'input.options.*.name' => 'required|string',
+            'input.options.*.values' => 'required|integer|numeric:strict|min:0',
 
-            'input.internal' => 'present|array',
-            'input.internal.price' => 'required|integer|numeric:strict|min:0',
-            'input.internal.updated_at' => 'required|integer|numeric:strict|min:1',
+            'input.limit' => 'required|integer|numeric:strict|min:0',
         ]);
 
         $response = [
@@ -35,8 +33,24 @@ class Exercise19Controller extends Controller
             return response()->json($response);
         }
 
+        $input = $request['input'];
+        $options = $input['options'];
+        $limit = $input['limit'];
+        $totalCombinations = [];
+
+        $totalCombinations = 1;
+
+        foreach ($options as $option) {
+            $totalCombinations *= $option['values'];
+        }
+
+        $isExceeded = $totalCombinations > $limit;
+
         $response['success'] = true;
-        $response['data'] = ['value' => $value];
+        $response['data'] = [
+            'combinations' => $totalCombinations,
+            'limit_exceeded' => $isExceeded,
+        ];
 
         return response()->json($response);
     }
